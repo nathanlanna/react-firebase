@@ -1,5 +1,6 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, IconButton, Link, Toolbar, Typography } from "@mui/material";
 import { Component } from "react";
+import { routes } from "../../Utils/routeUtils";
 
 export class TopBar extends Component {
 
@@ -7,8 +8,10 @@ export class TopBar extends Component {
         return (
             <AppBar position='static'>
                 <Toolbar>
-                    <Typography variant='headline' component='h2'>
-                        RL SYSTEM
+                    <IconButton onClick={()=>{window.location=routes.home.path}}>
+                    </IconButton>
+                    <Typography>
+                        <Link href="/" variant="headline" color="#FFFFFF" underline="none" >Rl System</Link>
                     </Typography>
                 </Toolbar>
             </AppBar>

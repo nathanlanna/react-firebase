@@ -7,8 +7,9 @@ import { routes } from './Utils/routeUtils';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Welcome } from './Components/Welcome/Welcome';
 import { TopBar } from './Components/App/TopBar';
-import { ThemeProvider, createTheme } from '@mui/material';
+import { Card, CardContent, ThemeProvider, createTheme } from '@mui/material';
 import { red } from '@mui/material/colors';
+import Add from './Components/Add/Add';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const tema = createTheme({
@@ -20,13 +21,19 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={tema}>
       <TopBar />
-      <Router>
-        <Routes>
-          <Route exact path={routes.home.path} element={<Welcome />} />
-          <Route exact path={routes.listar.path} element={<App />} />
-          <Route exact path={routes.adicionar.path} element={<App />} />
-        </Routes>
-      </Router>
+      <Card>
+        <CardContent style={{ margin: "100px" }}>
+          <Router>
+            <Routes>
+              <Route exact path={routes.home.path} element={<Welcome />} />
+              <Route exact path={routes.listar.path} element={<App />} />
+              <Route exact path={routes.adicionar.path} element={<Add />} />
+              <Route exact path="/editar/:id"element={<Add />} />
+
+            </Routes>
+          </Router>
+        </CardContent>
+      </Card>
     </ThemeProvider>
   </React.StrictMode>
 );
